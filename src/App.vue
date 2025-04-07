@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 const firstName = ref('nguyen')
-const lastName = ref('a')
+const lastName = ref('hieu')
 const fullName = computed({
   get(){
     return firstName.value +' '+ lastName.value
@@ -14,8 +14,6 @@ const changeFullname = () => {
   fullName.value = "nguyen,B"
 }
 </script>
-
-
 <template>
  <div>
   <p id= "count">fullname: {{ fullName }}</p>
