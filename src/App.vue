@@ -1,25 +1,29 @@
 <script setup>
-import { computed, ref } from 'vue';
-const firstName = ref('nguyen')
-const lastName = ref('hieu')
-const fullName = computed({
-  get(){
-    return firstName.value +' '+ lastName.value
-  },
-  set(newvalue){
-    [firstName.value, lastName.value] = newvalue.split(',')
-  }
-})
-const changeFullname = () => {
-  fullName.value = "nguyen,B"
-}
-</script>
-<template>
- <div>
-  <p id= "count">fullname: {{ fullName }}</p>
-  <p id= "count">first name: {{ firstName }}</p>
-  <p id= "count">last name: {{ lastName }}</p>
-  <button @click="changeFullname">change fullname</button>
- </div>
-</template>
+import { ref, reactive } from 'vue'
 
+const color = ref('red')
+const background = ref('blue')
+const fontSize = ref('10')
+
+const styleObject = reactive({
+  border: 'none',
+  borderRadius: '6px'
+})
+</script>
+
+<template>
+  <div>
+    <button 
+      :style="[
+        {
+          color: color,
+          background: background,
+          fontSize: fontSize + 'px'
+        },
+        styleObject
+      ]"
+    >
+      Click Me
+    </button>
+  </div>
+</template>
